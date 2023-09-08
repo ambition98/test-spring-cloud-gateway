@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: account-service
+          uri: http://15.164.233.188
+          predicates:
+            - name: Path
+              args:
+                pattern: /account/**
+            - name: Method
+              args:
+                methods:
+                  - GET
+
+        - id: post-service
+          uri: http://13.209.35.205
+          predicates:
+            - name: Path
+              args:
+                pattern: /post/**
+            - name: Method
+              args:
+                methods:
+                  - GET
